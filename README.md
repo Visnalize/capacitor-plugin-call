@@ -1,6 +1,11 @@
 # capacitor-plugin-call
 
-Call number plugin for Capacitor apps
+Call number plugin for Capacitor apps (Capacitor 5 only).
+
+## Supported platforms
+
+- Android
+- iOS
 
 ## Install
 

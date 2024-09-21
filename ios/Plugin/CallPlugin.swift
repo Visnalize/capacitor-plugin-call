@@ -1,3 +1,4 @@
+import Foundation
 import Capacitor
 
 /**
@@ -14,13 +15,19 @@ public class CallPlugin: CAPPlugin {
             return
         }
         
-        if formattedNumber.starts(with:"tel:") {
+        if !formattedNumber.starts(with:"tel:") {
             formattedNumber = "tel:" + formattedNumber
         }
         
         formattedNumber = formattedNumber.replacingOccurrences(of: "#", with: "%23")
-        guard let number = URL(string:formattedNumber) else { return }
-        UIApplication.shared.open(number)
-        call.resolve()
+        guard let number = URL(string:formattedNumber)
+        else {
+            call.reject("error-call-failed")
+            return
+        }
+        DispatchQueue.main.async {
+            UIApplication.shared.open(number)
+            call.resolve()
+        }
     }
 }
