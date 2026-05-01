@@ -1,6 +1,8 @@
 # capacitor-plugin-call
 
-Call number plugin for Capacitor apps (Capacitor 5 only).
+[![npm](https://img.shields.io/npm/v/capacitor-plugin-call)](https://www.npmjs.com/package/capacitor-plugin-call)
+
+Simple Capacitor plugin to open the dialer with a given number.
 
 ## Supported platforms
 
