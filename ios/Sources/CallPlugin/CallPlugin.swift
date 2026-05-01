@@ -6,7 +6,12 @@ import Capacitor
  * here: https://capacitorjs.com/docs/plugins/ios
  */
 @objc(CallPlugin)
-public class CallPlugin: CAPPlugin {
+public class CallPlugin: CAPPlugin, CAPBridgedPlugin {
+    public let identifier = "CallPlugin"
+    public let jsName = "Call"
+    public let pluginMethods: [CAPPluginMethod] = [
+        CAPPluginMethod(name: "call", returnType: CAPPluginReturnPromise),
+    ]
 
     @objc func call(_ call: CAPPluginCall) {
         guard var formattedNumber = call.getString("number")
