@@ -31,8 +31,13 @@ public class CallPlugin: CAPPlugin, CAPBridgedPlugin {
             return
         }
         DispatchQueue.main.async {
-            UIApplication.shared.open(number)
-            call.resolve()
+            UIApplication.shared.open(number, options: [:]) { success in
+                if success {
+                    call.resolve()
+                } else {
+                    call.reject("error-call-failed")
+                }
+            }
         }
     }
 }
