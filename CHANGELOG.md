@@ -1,5 +1,9 @@
 # Changelog
 
+## 8.0.2
+
+- Handle call failure for iOS.
+
 ## 8.0.1
 
 - Updated README and added CHANGELOG to reflect the latest changes.
